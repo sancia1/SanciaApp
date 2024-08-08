@@ -1,7 +1,22 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt 
 import os
+
+# Set the Streamlit app configuration
+st.set_page_config(page_title="CSV Plotter App", page_icon=":rocket:", layout="wide", initial_sidebar_state="expanded")
+
+# Hide the GitHub icon and footer
+hide_github_icon = """
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    .css-1v0mbdj.etr89bj0 {
+        display: none;
+    }
+    </style>
+"""
+st.markdown(hide_github_icon, unsafe_allow_html=True)
 
 # Streamlit app layout
 st.title("CSV Plotter App")
@@ -38,3 +53,4 @@ if st.button("Go"):
         st.pyplot(fig)
     else:
         st.error("The folder path does not exist. Please enter a valid path.")
+
